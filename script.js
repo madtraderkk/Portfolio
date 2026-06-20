@@ -31,14 +31,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const cert1 = document.getElementById("certTrigger");
   const cert2 = document.getElementById("certTrigger2");
 
-  if (cert1)
-    cert1.addEventListener("click", () =>
-      openLightbox("certificate.jpeg", "Certificate 1"),
-    );
-  if (cert2)
-    cert2.addEventListener("click", () =>
-      openLightbox("certificate2.jpeg", "Certificate 2"),
-    );
+  if (cert1) cert1.addEventListener("click", () => openLightbox("certificate.jpeg", "Certificate 1"));
+  if (cert2) cert2.addEventListener("click", () => openLightbox("certificate2.jpeg", "Certificate 2"));
   if (closeBtn) closeBtn.addEventListener("click", closeLightbox);
 
   if (modal) {
@@ -81,14 +75,9 @@ document.addEventListener("DOMContentLoaded", () => {
   function openSkillModal(title) {
     if (!skillModal || !modalTitle || !modalDesc) return;
     const data = skillData[title];
-    if (!data) {
-      console.warn("No data found for skill:", title);
-      return;
-    }
-
+    if (!data) return;
     modalTitle.textContent = data.title;
     modalDesc.textContent = data.desc;
-
     skillModal.classList.add("active");
     document.body.style.overflow = "hidden";
   }
