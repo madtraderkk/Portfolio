@@ -166,6 +166,18 @@ h3 {
   color: var(--color-accent-orange);
 }
 
+.nav-item-contacts {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.contacts-chev {
+  font-size: 0.85rem;
+  opacity: 0.8;
+  transform: translateY(-1px);
+}
+
 .social-header-row {
   display: flex;
   gap: 0.75rem;
@@ -235,6 +247,54 @@ h3 {
 }
 .mobile-nav-toggle.active .hamburger-bar:nth-child(3) {
   transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* Contacts dropdown (mobile) */
+.contacts-dropdown {
+  display: none;
+  width: 100%;
+  margin-top: 0.9rem;
+}
+
+.contacts-dropdown-inner {
+  width: 100%;
+  border: 1px solid var(--color-border-line);
+  background: rgba(17, 19, 25, 0.55);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border-radius: 16px;
+  padding: 1.05rem 1rem;
+  max-width: 360px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.contacts-dropdown-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  align-items: center;
+}
+
+.contact-btn {
+  width: 100%;
+  max-width: 320px;
+  padding: 0.8rem 1rem;
+  border-radius: 12px;
+  text-align: center;
+  border: 1px solid var(--color-border-line);
+  background: rgba(23, 27, 36, 0.55);
+  color: var(--color-txt-secondary);
+  text-decoration: none;
+  font-weight: 700;
+  transition: transform 0.2s ease, border-color 0.2s ease, color 0.2s ease, background 0.2s ease;
+}
+
+.contact-btn:hover {
+  transform: translateY(-2px);
+  border-color: var(--color-accent-orange);
+  color: var(--color-txt-main);
+  background: rgba(255, 107, 53, 0.12);
 }
 
 .hero-section {
@@ -558,6 +618,7 @@ h3 {
   z-index: 1;
   opacity: 0.4;
 }
+
 .layer-two {
   top: 8px;
   transform: scale(0.96);
@@ -1037,7 +1098,7 @@ h3 {
     transition: max-height 0.35s ease, opacity 0.3s ease, visibility 0.3s ease;
   }
   .nav-links.active {
-    max-height: 400px;
+    max-height: 620px;
     opacity: 1;
     visibility: visible;
     padding: 1.5rem 0;
@@ -1051,6 +1112,10 @@ h3 {
   }
   .nav-item:last-child {
     border-bottom: none;
+  }
+
+  .contacts-dropdown {
+    display: block;
   }
   .hero-section {
     padding-top: calc(var(--nav-height) + 3rem);
@@ -1105,6 +1170,18 @@ h3 {
   }
   .footer-links a {
     margin-left: 0.75rem;
+  }
+}
+
+/* Force social buttons visible on "14 pro max" style widths */
+@media (max-width: 420px) {
+  .social-header-row {
+    display: flex !important;
+  }
+  .social-icon-btn {
+    width: 36px;
+    height: 36px;
+    font-size: 0.9rem;
   }
 }
 
@@ -1226,6 +1303,28 @@ h3 {
           <a href="#skills" class="nav-item">Skills</a>
           <a href="#services" class="nav-item">Services</a>
           <a href="#experience" class="nav-item">Experience</a>
+
+          <div style="width: 100%;">
+            <a
+              href="#"
+              class="nav-item nav-item-contacts"
+              id="contactsToggle"
+              aria-expanded="false"
+            >
+              Contacts <span class="contacts-chev" id="contactsChev">▾</span>
+            </a>
+
+            <div class="contacts-dropdown" id="contactsDropdown" hidden>
+              <div class="contacts-dropdown-inner">
+                <div class="contacts-dropdown-buttons">
+                  <a href="mailto:karankumar7h7@gmail.com" class="contact-btn">Email Me</a>
+                  <a href="https://www.linkedin.com/in/karan-kumar-938790385" target="_blank" rel="noopener" class="contact-btn">LinkedIn</a>
+                  <a href="https://www.instagram.com/ig_karankumar" target="_blank" rel="noopener" class="contact-btn">Instagram</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
           <a href="#trading" class="nav-item">Verification</a>
         </nav>
 
@@ -1294,7 +1393,7 @@ h3 {
               <div class="progress-ring-wrapper">
                 <svg class="progress-ring-svg" viewBox="0 0 120 120">
                   <circle class="ring-bg" cx="60" cy="60" r="50" />
-                  <circle class="ring-progress" cx="60" cy="60" r="50" style="stroke-dashoffset: calc(314.16 - (314.16 * 95) / 100);" />
+                  <circle class="ring-progress" cx="60" cy="60" r="50" style="stroke-dashoffset: calc(314.16 - (314.16 * 95) / 100);"></circle>
                 </svg>
                 <span class="center-percentage">95%</span>
               </div>
@@ -1304,7 +1403,7 @@ h3 {
               <div class="progress-ring-wrapper">
                 <svg class="progress-ring-svg" viewBox="0 0 120 120">
                   <circle class="ring-bg" cx="60" cy="60" r="50" />
-                  <circle class="ring-progress" cx="60" cy="60" r="50" style="stroke-dashoffset: calc(314.16 - (314.16 * 85) / 100);" />
+                  <circle class="ring-progress" cx="60" cy="60" r="50" style="stroke-dashoffset: calc(314.16 - (314.16 * 85) / 100);"></circle>
                 </svg>
                 <span class="center-percentage">85%</span>
               </div>
@@ -1314,7 +1413,7 @@ h3 {
               <div class="progress-ring-wrapper">
                 <svg class="progress-ring-svg" viewBox="0 0 120 120">
                   <circle class="ring-bg" cx="60" cy="60" r="50" />
-                  <circle class="ring-progress" cx="60" cy="60" r="50" style="stroke-dashoffset: calc(314.16 - (314.16 * 90) / 100);" />
+                  <circle class="ring-progress" cx="60" cy="60" r="50" style="stroke-dashoffset: calc(314.16 - (314.16 * 90) / 100);"></circle>
                 </svg>
                 <span class="center-percentage">90%</span>
               </div>
@@ -1324,7 +1423,7 @@ h3 {
               <div class="progress-ring-wrapper">
                 <svg class="progress-ring-svg" viewBox="0 0 120 120">
                   <circle class="ring-bg" cx="60" cy="60" r="50" />
-                  <circle class="ring-progress" cx="60" cy="60" r="50" style="stroke-dashoffset: calc(314.16 - (314.16 * 80) / 100);" />
+                  <circle class="ring-progress" cx="60" cy="60" r="50" style="stroke-dashoffset: calc(314.16 - (314.16 * 80) / 100);"></circle>
                 </svg>
                 <span class="center-percentage">80%</span>
               </div>
@@ -1557,6 +1656,47 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  const contactsToggle = document.getElementById("contactsToggle");
+  const contactsDropdown = document.getElementById("contactsDropdown");
+  const contactsChev = document.getElementById("contactsChev");
+
+  function closeContacts() {
+    if (!contactsDropdown) return;
+    contactsDropdown.hidden = true;
+    if (contactsToggle) contactsToggle.setAttribute("aria-expanded", "false");
+    if (contactsChev) contactsChev.textContent = "▾";
+  }
+
+  function toggleContacts(e) {
+    e.preventDefault();
+    const isHidden = contactsDropdown?.hidden ?? true;
+    if (contactsDropdown) contactsDropdown.hidden = !isHidden;
+    if (contactsToggle) contactsToggle.setAttribute("aria-expanded", String(isHidden));
+    if (contactsChev) contactsChev.textContent = isHidden ? "▴" : "▾";
+  }
+
+  if (contactsToggle && contactsDropdown) {
+    contactsToggle.addEventListener("click", toggleContacts);
+  }
+
+  // If menu opened and user taps other nav link, close dropdown
+  document.querySelectorAll(".nav-links .nav-item").forEach((a) => {
+    if (a.id === "contactsToggle") return;
+    a.addEventListener("click", closeContacts);
+  });
+
+  // close dropdown when clicking outside (mobile menu)
+  document.addEventListener("click", (e) => {
+    if (!navLinks?.classList.contains("active")) return;
+    if (!contactsDropdown || contactsDropdown.hidden) return;
+
+    const clickedInside =
+      contactsToggle?.contains(e.target) ||
+      contactsDropdown?.contains(e.target);
+
+    if (!clickedInside) closeContacts();
+  });
+
   const modal = document.getElementById("lightboxModal");
   const modalImg = document.getElementById("lightboxExpandedImg");
   const closeBtn = document.getElementById("lightboxClose");
@@ -1593,6 +1733,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (e.key === "Escape") {
       closeLightbox();
       closeSkillModal();
+      closeContacts();
     }
   });
 
